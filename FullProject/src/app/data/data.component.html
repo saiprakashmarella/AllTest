@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
-      <table class="table table-striped" style="margin-top: 50px;">
-        <thead>
-          <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let i of data">
-            <td>{{ i.name }}</td>
-            <td>{{ i.age }}</td>
-            <td>{{ i.country }}</td>
-          </tr>
-        </tbody>
-      </table>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <table class="table table-striped" style="margin-top: 50px;">
+      <thead>
+        <tr>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of testData">
+          <td>{{ i.name }}</td>
+          <td>{{ i.age }}</td>
+          <td>{{ i.country }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br />
+  <br />
+  <div id="addData" class="row">
+    <div class="col-2">
+
     </div>
-  </body>
+    <div class="col-8" style="margin-left: -50px;">
+      <button type="button" class="btn-primary" (click)="showAddData()">Add Data</button>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div *ngIf="showAdd">
+    <form #addData="ngForm" class="form-inline" (ngSubmit)="AddData(addData.value)">
+      <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="name" style="margin-left: 50px;;" ngModel>
+
+        <input type="text" name="age" class="form-control" placeholder="age" style="margin-left: 50px;" ngModel>
+
+        <input type="text" name="country" class="form-control" placeholder="country" style="margin-left: 50px;" ngModel>
+        <br />
+        <input type="submit" value="submit">
+      </div>
+    </form>
+  </div>
+</body>
+
 </html>
