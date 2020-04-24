@@ -25,6 +25,11 @@ public class data {
 	private String name;
 	private int Age;
 	private String Country;
+	public data(String name,int age,String country){
+		this.name=name;
+		this.Age=age;
+		this.Country=country;
+	}
 	public Long getId() {
 		return id;
 	}
