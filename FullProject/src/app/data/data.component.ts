@@ -38,6 +38,7 @@ export class DataComponent implements OnInit {
   AddData(data: any) {
     this.ds.AddData(data).subscribe(data => {
       this.openSnackBar("Data Added", "Success");
+      this.getdata();
     },
       error => {
         this.openSnackBar("Data Added", "fail")
